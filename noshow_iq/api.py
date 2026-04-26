@@ -2,12 +2,10 @@ from flask import Flask, request, jsonify
 from datetime import datetime
 from pymongo import MongoClient
 import os
-from noshow_iq.preprocess import load_and_clean, get_features_target
 from noshow_iq.model import predict, model_exists
 
 app = Flask(__name__)
 
-# MongoDB connection
 MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
 client = MongoClient(MONGO_URI)
 db = client["noshow_iq"]

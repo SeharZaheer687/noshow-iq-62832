@@ -26,11 +26,14 @@ def load_and_clean(path):
 
     df.drop(
         columns=['patientid', 'appointmentid',
-                 'scheduledday', 'appointmentday'],
+                 'scheduledday', 'appointmentday',
+                 'neighbourhood'],
         inplace=True
     )
 
     df['gender'] = df['gender'].map({'F': 0, 'M': 1})
+
+    df = df.dropna()
 
     return df
 

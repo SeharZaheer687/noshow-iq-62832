@@ -18,7 +18,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install flake8 pytest flask pymongo scikit-learn pandas numpy joblib imbalanced-learn
+        run: |
+          pip install flake8 pytest
+          pip install flask pymongo scikit-learn pandas numpy joblib imbalanced-learn
+          pip install -e .
 
       - name: Lint with flake8
         run: flake8 noshow_iq/ --max-line-length=88
